@@ -1,0 +1,237 @@
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.020 s -- in co.edu.javeriana.fis.electoral.estado.EstadoProcesoTest
+    [OK]   EstadoEnVotacion: cerrar pasa a escrutinio; no permite inscripción ni actas
+    [OK]   EstadoEnVotacion (negativa): abrir o publicar no son válidos
+    [OK]   EstadoEscrutinio: permite actas y publicar pasa a finalizado
+    [OK]   EstadoEscrutinio (negativa): no se puede volver a abrir ni cerrar
+    [OK]   EstadoFinalizado (límite): estado terminal, nada permitido
+    [OK]   Mensaje de error indica la acción y el estado actual
+    [OK]   EstadoProgramado.abrirVotacion: con candidatos pasa a EstadoEnVotacion
+    [OK]   EstadoProgramado: permite inscripción y no permite actas
+    [OK]   EstadoProgramado (negativa): cerrar o publicar no son válidos
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s -- in co.edu.javeriana.fis.electoral.evento.BitacoraAuditoriaTest
+    [OK]   actualizar: guarda cada evento recibido en orden
+    [OK]   actualizar (negativa): evento nulo
+    [OK]   filtrarPorTipo: devuelve solo los eventos del tipo pedido
+    [OK]   filtrarPorTipo (negativa): tipo nulo
+    [OK]   filtrarPorTipo (límite): bitácora vacía devuelve lista vacía
+    [OK]   getRegistros (negativa): la bitácora no se puede alterar desde fuera (auditoría)
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in co.edu.javeriana.fis.electoral.evento.EventoElectoralTest
+    [OK]   de: crea el evento con la fecha actual
+    [OK]   constructor (límite): detalle nulo se convierte en texto vacío
+    [OK]   constructor (negativa): tipo nulo, referencia vacía o fecha nula
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in co.edu.javeriana.fis.electoral.evento.MonitorReclamacionesTest
+    [OK]   actualizar (negativa): evento nulo
+    [OK]   actualizar: cuenta las reclamaciones por mesa
+    [OK]   actualizar: ignora eventos que no son reclamaciones
+    [OK]   mesasEnRevision: devuelve las mesas ordenadas por código
+    [OK]   mesasEnRevision (límite): sin reclamaciones la lista está vacía
+    [OK]   mesasEnRevision (límite): entra justo al alcanzar el umbral, no antes
+    [OK]   constructor (negativa): umbral 0 o negativo
+    [OK]   constructor (límite): umbral 1 es válido
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in co.edu.javeriana.fis.electoral.evento.PublicadorEventosTest
+    [OK]   desuscribir: el observador deja de recibir eventos
+    [OK]   desuscribir (límite): observador no suscrito devuelve false
+    [OK]   publicar: notifica a todos los observadores
+    [OK]   publicar (negativa): evento nulo
+    [OK]   publicar (límite): sin observadores notifica a 0
+    [OK]   suscribir: agrega el observador
+    [OK]   suscribir (límite): suscribir dos veces no duplica notificaciones
+    [OK]   suscribir (negativa): observador nulo
+[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 s -- in co.edu.javeriana.fis.electoral.fachada.SistemaElectoralFacadeTest
+    [OK]   asignarJurado: registra el jurado en la mesa con su rol
+    [OK]   asignarJurado (negativa): el mismo ciudadano no puede ser jurado en dos mesas
+    [OK]   asignarJurado (negativa): mesa inexistente
+    [OK]   abrir/cerrar/publicar: recorren el ciclo y dejan rastro en la bitácora
+    [OK]   constructor (negativa): umbral de reclamaciones inválido
+    [OK]   consultarParticipacion: votos / censo del territorio
+    [OK]   consultarParticipacion (límite): sin actas la participación es 0
+    [OK]   consultarVotos: suma a nivel de mesa, puesto y departamento
+    [OK]   consultarVotos (negativa): territorio inexistente
+    [OK]   reportarIncidencia (límite): ids distintos para severidades distintas
+    [OK]   inscribirCandidato: lo inscribe en el proceso y queda avalado por el partido
+    [OK]   inscribirCandidato (negativa): proceso o partido inexistentes
+    [OK]   inscribirCandidato (límite): el mismo candidato en dos procesos no duplica el aval
+    [OK]   suscribirObservador: un observador externo recibe los eventos
+    [OK]   suscribirObservador (negativa): observador nulo
+    [OK]   presentarReclamacion: crea una Reclamacion y el monitor la cuenta
+    [OK]   publicarResultados (negativa): proceso inexistente
+    [OK]   presentarReclamacion (negativa): mesa sin acta
+    [OK]   presentarReclamacion (límite): al llegar al umbral la mesa queda en revisión
+    [OK]   registrarActa: guarda el acta en la mesa y publica ACTA_REGISTRADA
+    [OK]   registrarActa (negativa): candidato no inscrito en el proceso o acta nula
+    [OK]   registrarActa (negativa): no se permite durante la votación
+    [OK]   registrarMesa (negativa): no se puede crear una mesa en un municipio
+    [OK]   registrarMesa: numera las mesas del puesto en orden y arma el código
+    [OK]   registrarPartido: crea el partido
+    [OK]   registrarPartido (negativa): código repetido
+    [OK]   registrarProceso: crea el proceso en estado PROGRAMADO
+    [OK]   registrarProceso (negativa): código repetido
+    [OK]   registrarPuesto (negativa): no se puede colgar un puesto de una mesa
+    [OK]   registrarMunicipio/Puesto (negativa): padre inexistente o código duplicado
+    [OK]   reportarIncidencia: crea una Incidencia y la publica
+    [OK]   reportarIncidencia (negativa): severidad nula o mesa inexistente
+    [OK]   resultadosPorCandidato: ordenados de mayor a menor votación
+    [OK]   resultadosPorCandidato (negativa): proceso inexistente
+    [OK]   resultadosPorCandidato (límite): sin actas todos los candidatos tienen 0
+    [OK]   cerrarVotacion (negativa): transición inválida no genera evento
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s -- in co.edu.javeriana.fis.electoral.modelo.ActaEscrutinioTest
+    [OK]   getVotosPorCandidato (negativa): el acta es inmutable
+    [OK]   construir (negativa): acta sin candidatos
+    [OK]   construir (negativa): acta sin firma de jurado
+    [OK]   construir (negativa): acta sin mesa o sin fecha
+    [OK]   construir (límite): acta con todos los valores en cero es válida
+    [OK]   construir: arma un acta completa con todos sus datos
+    [OK]   construir (negativa): votos negativos
+    [OK]   getCandidatoGanador: el de más votos
+    [OK]   getCandidatoGanador (límite): empate en primer lugar no tiene ganador
+    [OK]   getCandidatoGanador (límite): si nadie tiene votos no hay ganador
+    [OK]   getTotalVotos: suma candidatos, blanco, nulos y no marcados
+    [OK]   getTotalVotos (límite): valores grandes no se pierden
+    [OK]   getVotosCandidato: devuelve los votos del candidato
+    [OK]   getVotosCandidato (límite): candidato que no está en el acta tiene 0
+    [OK]   votosCandidato (negativa): no permite consignar dos veces al mismo candidato
+    [OK]   getVotosCandidato (negativa): documento nulo
+    [OK]   getVotosValidos: candidatos + votos en blanco (sin nulos ni no marcados)
+    [OK]   getVotosValidos (límite): si todo es nulo, los válidos son 0
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in co.edu.javeriana.fis.electoral.modelo.CandidatoTest
+    [OK]   constructor (negativa): documento con letras se rechaza
+    [OK]   constructor (negativa): documento de 5 u 11 dígitos se rechaza
+    [OK]   constructor (límite): documento de 6 y de 10 dígitos son válidos
+    [OK]   constructor (negativa): sin partido se rechaza
+    [OK]   constructor: crea el candidato con su partido
+    [OK]   equals (límite): distinto documento no es igual
+    [OK]   equals: se identifica por documento
+    [OK]   perteneceA (límite): false con partido nulo, sin lanzar excepción
+    [OK]   perteneceA: false para otro partido
+    [OK]   perteneceA: true para su propio partido
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in co.edu.javeriana.fis.electoral.modelo.JuradoTest
+    [OK]   asignarAMesa (negativa): código de mesa vacío o nulo
+    [OK]   asignarAMesa (negativa): no se puede asignar a dos mesas
+    [OK]   asignarAMesa: guarda la mesa asignada
+    [OK]   constructor (negativa): documento inválido
+    [OK]   constructor (límite): documento de 6 y 10 dígitos
+    [OK]   constructor (negativa): nombre vacío
+    [OK]   constructor: crea el jurado sin mesa asignada
+    [OK]   estaAsignado: true después de asignarlo
+    [OK]   estaAsignado (límite): jurado recién creado no está asignado
+    [OK]   estaAsignado (negativa): un intento fallido no lo deja asignado
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in co.edu.javeriana.fis.electoral.modelo.PartidoPoliticoTest
+    [OK]   avalarCandidato (negativa): candidato de otro partido
+    [OK]   avalarCandidato (negativa): el mismo candidato dos veces
+    [OK]   avalarCandidato (negativa): candidato nulo
+    [OK]   avalarCandidato: agrega un candidato del mismo partido
+    [OK]   getCandidatosAvalados (negativa): la lista no se puede modificar desde fuera
+    [OK]   getCandidatosAvalados (límite): lista vacía al inicio
+    [OK]   cantidadCandidatos (límite): partido sin candidatos devuelve 0
+    [OK]   cantidadCandidatos: cuenta todos los avalados
+    [OK]   constructor (negativa): código vacío lanza excepción
+    [OK]   constructor (negativa): nombre nulo lanza excepción
+    [OK]   constructor: crea el partido y limpia espacios
+    [OK]   equals (límite): distinto código o nulo no son iguales
+    [OK]   equals: dos partidos con el mismo código son iguales
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in co.edu.javeriana.fis.electoral.modelo.ProcesoElectoralTest
+    [OK]   abrirVotacion (negativa): no se puede abrir dos veces
+    [OK]   abrirVotacion (límite): sin candidatos inscritos no se puede abrir
+    [OK]   abrirVotacion: PROGRAMADO → EN_VOTACION
+    [OK]   getCandidatos (negativa): la lista no se puede modificar desde fuera
+    [OK]   cerrarVotacion (negativa): no se puede cerrar si nunca se abrió
+    [OK]   cerrarVotacion: EN_VOTACION → ESCRUTINIO
+    [OK]   constructor (negativa): tipo, fecha o código faltantes
+    [OK]   constructor: inicia en estado PROGRAMADO y sin candidatos
+    [OK]   estaInscrito (límite): false con lista vacía o documento nulo
+    [OK]   estaInscrito: true para un candidato inscrito
+    [OK]   publicarResultados (límite): en FINALIZADO ninguna transición es posible
+    [OK]   inscribirCandidato (negativa): no se permite una vez abierta la votación
+    [OK]   inscribirCandidato (negativa): candidato nulo o repetido
+    [OK]   inscribirCandidato: agrega el candidato en estado PROGRAMADO
+    [OK]   permiteRegistroActas (límite): false antes y después del escrutinio
+    [OK]   permiteRegistroActas: solo en ESCRUTINIO
+    [OK]   publicarResultados (negativa): no se puede publicar durante la votación
+    [OK]   publicarResultados: ESCRUTINIO → FINALIZADO
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in co.edu.javeriana.fis.electoral.novedad.IncidenciaTest
+    [OK]   constructor (negativa): sin severidad, sin reportante o sin mesa
+    [OK]   constructor: queda abierta con fecha de registro
+    [OK]   constructor (negativa): descripción de 9 o 501 caracteres se rechaza
+    [OK]   constructor (límite): descripción de 10 y de 500 caracteres es válida
+    [OK]   esCritica: true solo con severidad ALTA
+    [OK]   esCritica: false con severidad BAJA y MEDIA
+    [OK]   requiereRevisionActa: una incidencia logística no obliga a revisar el acta
+    [OK]   resolver (negativa): no se puede resolver dos veces
+    [OK]   resolver (negativa/límite): respuesta vacía no cierra la novedad
+    [OK]   resolver: cierra la novedad y guarda la respuesta
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in co.edu.javeriana.fis.electoral.novedad.ReclamacionTest
+    [OK]   constructor (negativa): descripción demasiado corta
+    [OK]   constructor (negativa): sin tipo de reclamante
+    [OK]   constructor: crea la reclamación abierta del reclamante dado
+    [OK]   requiereRevisionActa: toda reclamación obliga a revisar el acta
+    [OK]   requiereRevisionActa (límite): sigue siendo true aunque ya esté resuelta
+    [OK]   resolver (negativa): respuesta nula
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in co.edu.javeriana.fis.electoral.novedad.RegistradorNovedadTest
+    [OK]   getCantidadRegistradas (límite): un registrador nuevo tiene 0
+    [OK]   constructores (negativa): severidad o tipo de reclamante nulos
+    [OK]   registrar: ids consecutivos en registros sucesivos
+    [OK]   registrar: el RegistradorIncidencia fabrica una Incidencia con id consecutivo
+    [OK]   registrar (negativa): si la novedad es inválida no se consume el consecutivo
+    [OK]   registrar (negativa): mesa nula
+    [OK]   registrar: el RegistradorReclamacion fabrica una Reclamacion si la mesa tiene acta
+    [OK]   registrar (negativa): no se puede reclamar sobre una mesa sin acta
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in co.edu.javeriana.fis.electoral.territorio.DepartamentoTest
+    [OK]   agregar: acepta municipios
+    [OK]   agregar (negativa): no acepta puestos directamente
+    [OK]   constructor (negativa): código vacío
+    [OK]   getCenso (límite): departamento vacío tiene censo 0
+    [OK]   remover: al quitar un municipio los totales se recalculan
+    [OK]   getTotalVotos / getCenso / getParticipacion: totales del departamento
+    [OK]   getVotosCandidato: agrega los votos de todos los niveles
+    [OK]   getVotosCandidato (límite): candidato sin votos en ninguna mesa da 0
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in co.edu.javeriana.fis.electoral.territorio.MesaVotacionTest
+    [OK]   asignarJurado (negativa): dos presidentes en la misma mesa
+    [OK]   asignarJurado (negativa): jurado que ya sirve en otra mesa
+    [OK]   asignarJurado (negativa): jurado o rol nulos
+    [OK]   asignarJurado (negativa): el mismo jurado dos veces
+    [OK]   asignarJurado: registra el jurado con su rol y le asigna la mesa
+    [OK]   asignarJurado (límite): acepta exactamente 6 jurados y rechaza el séptimo
+    [OK]   constructor (negativa): censo 0, censo > máximo o número 0
+    [OK]   constructor (límite): censo 1 y censo máximo son válidos
+    [OK]   constructor: crea la mesa con número y censo
+    [OK]   contarMesas: una mesa cuenta como 1
+    [OK]   getRolDe: devuelve el rol de un jurado de la mesa
+    [OK]   getRolDe (límite): jurado que no pertenece a la mesa devuelve null
+    [OK]   getJurados (negativa): el mapa de jurados no se puede modificar desde fuera
+    [OK]   getParticipacion: votos / censo
+    [OK]   getParticipacion (límite): 0 sin acta y 1.0 con participación total
+    [OK]   registrarActa (negativa): no se puede registrar dos actas
+    [OK]   registrarActa (negativa): firmada por alguien que no es jurado de la mesa
+    [OK]   registrarActa (límite): votos = censo se acepta; censo + 1 se rechaza
+    [OK]   registrarActa (negativa): acta nula o de otra mesa
+    [OK]   registrarActa: guarda el acta firmada por un jurado de la mesa
+    [OK]   tieneActa / getTotalVotos (límite): mesa sin acta tiene 0 votos
+    [OK]   getVotosCandidato: lee los votos desde el acta
+    [OK]   getVotosCandidato (límite): sin acta devuelve 0
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in co.edu.javeriana.fis.electoral.territorio.MunicipioTest
+    [OK]   contarMesas / getCenso: suma las mesas de todos sus puestos
+    [OK]   agregar (negativa): no acepta mesas sueltas ni departamentos
+    [OK]   agregar: acepta puestos de votación
+    [OK]   constructor (negativa): nombre vacío
+    [OK]   constructor: guarda código y nombre sin espacios sobrantes
+    [OK]   getHijos (negativa): la lista no se puede modificar desde fuera
+    [OK]   contarMesas (límite): puestos sin mesas dan 0 y la participación no divide por cero
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in co.edu.javeriana.fis.electoral.territorio.PuestoVotacionTest
+    [OK]   getCenso / getTotalVotos / getVotosCandidato: suman sus mesas
+    [OK]   getCenso / contarMesas (límite): puesto sin mesas tiene 0
+    [OK]   agregar (negativa): no acepta dos mesas con el mismo código
+    [OK]   agregar: acepta mesas de votación
+    [OK]   agregar (negativa): no acepta municipios dentro de un puesto ni nulos
+    [OK]   buscarHijo: encuentra por código o devuelve null
+    [OK]   constructor (negativa): dirección o código vacíos
+    [OK]   constructor: guarda nombre y dirección
+    [OK]   remover: quita la mesa existente
+    [OK]   remover (límite): código inexistente devuelve false
+    [OK]   siguienteNumeroMesa: máximo número existente + 1
+    [OK]   siguienteNumeroMesa (límite): puesto vacío empieza en 1
+
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 213, Failures: 0, Errors: 0, Skipped: 0
+[INFO] Tiempo total: 0.250 s
+[INFO] BUILD SUCCESS
